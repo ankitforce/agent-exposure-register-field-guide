@@ -1,0 +1,24 @@
+{
+  "name": "agent-exposure-register-field-guide",
+  "description": "Reusable checklist, template, and schema for reviewing what an AI agent can reach.",
+  "canonical_article_url": "https://ankitkumar3514.substack.com/p/agent-exposure-register",
+  "public_repo_url": "https://github.com/ankitforce/agent-exposure-register-field-guide",
+  "read_order": [
+    "README.md",
+    "checklists/exposure-register-checklist.md",
+    "templates/exposure-register.md",
+    "schemas/exposure-register.schema.json",
+    "docs/source-notes.md"
+  ],
+  "allowed_tasks": [
+    "draft_exposure_register",
+    "audit_agent_permissions",
+    "convert_register_to_json",
+    "recommend_stop_rules"
+  ],
+  "safety_boundaries": [
+    "Do not invent facts.",
+    "Do not include secrets or private paths.",
+    "Escalate before publish, send, merge, deploy, delete, purchase, or access-change actions."
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Agent Exposure Register",
+  "type": "object",
+  "required": [
+    "agent_name",
+    "owner",
+    "purpose",
+    "runtime",
+    "authority",
+    "reach",
+    "memory",
+    "evidence",
+    "stop_rules"
+  ],
+  "properties": {
+    "agent_name": { "type": "string", "minLength": 1 },
+    "owner": { "type": "string", "minLength": 1 },
+    "purpose": { "type": "string", "minLength": 1 },
+    "runtime": { "type": "string", "minLength": 1 },
+    "human_reviewer": { "type": "string" },
+    "last_reviewed": { "type": "string" },
+    "authority": {
+      "type": "object",
+      "required": ["acting_identity"],
+      "properties": {
+        "acting_identity": { "type": "string", "minLength": 1 },
+        "service_accounts": { "type": "array", "items": { "type": "string" } },
+        "oauth_scopes": { "type": "array", "items": { "type": "string" } },
+        "repository_permissions": { "type": "array", "items": { "type": "string" } },
+        "cloud_roles": { "type": "array", "items": { "type": "string" } },
+        "app_connections": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": true
+    },
+    "reach": {
+      "type": "object",
+      "properties": {
+        "read_permissions": { "type": "array", "items": { "type": "string" } },
+        "write_permissions": { "type": "array", "items": { "type": "string" } },
+        "execute_permissions": { "type": "array", "items": { "type": "string" } },
+        "network_destinations": { "type": "array", "items": { "type": "string" } },
+        "external_actions_allowed": { "type": "array", "items": { "type": "string" } },
+        "external_actions_prohibited": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": true
+    },
+    "memory": {
+      "type": "object",
+      "properties": {
+        "short_term": { "type": "string" },
+        "long_term": { "type": "string" },
+        "storage_location": { "type": "string" },
+        "retention": { "type": "string" },
+        "review_process": { "type": "string" },
+        "correction_process": { "type": "string" }
+      },
+      "additionalProperties": true
+    },
+    "evidence": {
+      "type": "object",
+      "properties": {
+        "required_logs": { "type": "array", "items": { "type": "string" } },
+        "required_artifacts": { "type": "array", "items": { "type": "string" } },
+        "required_evals": { "type": "array", "items": { "type": "string" } },
+        "required_approvals": { "type": "array", "items": { "type": "string" } },
+        "public_verification": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": true
+    },
+    "stop_rules": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    }
+  },
+  "additionalProperties": true
+}
+
